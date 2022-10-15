@@ -13,4 +13,5 @@ On z/OS: - Create dataset (PDSE) to contain rexx in member LOGSEL
              dsorg: PS
              lrecl: 27994
              recfm: VB
+             
 On workstation: - Create folder to contain bash script logsel.sh and to download selection to
