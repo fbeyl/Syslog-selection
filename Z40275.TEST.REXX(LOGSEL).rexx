@@ -1,7 +1,10 @@
 /* REXX */
-
+arg noalloc;
 rc=isfcalls('ON')
-"ALLOC DA('Z40275.LOGSEL.PS') F(OUTDD) OLD REUSE"
+if noalloc \= 'NOALLOC' then
+  do
+    "ALLOC DA('Z40275.LOGSEL.PS') F(OUTDD) OLD REUSE"
+  end
 "EXECIO 0 DISKW outdd (OPEN FINIS"           /*Empty the outdd file           */
 Address SDSF "ISFLOG ALLOC TYPE(SYSLOG)"
 eof = 'NO'                                   /* Initialize end-of-file flag   */
@@ -29,7 +32,10 @@ END
                                   rently open.  If the OUTDD file is
                                   not open, the EXECIO command has
                                   no effect.                         */
-"FREE F(OUTDD)"
+if noalloc \= 'NOALLOC' then
+  do
+    "FREE F(OUTDD)"
+  end
 RC = ISFCALLS("OFF") /* Delete SDSF host command environment */
 say '{"Dataset":"Z40275.LOGSEL.PS","Records":"' select_count '"}'
 return
