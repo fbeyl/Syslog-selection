@@ -1,12 +1,3 @@
-//Z4027500 JOB FB3,
-//             Z40275,
-//             NOTIFY=Z40275,CLASS=A,
-//             MSGLEVEL=(1,1)
-//LOGSEL  EXEC PGM=IRXJCL,
-//             PARM='LOGSEL'
-//SYSEXEC  DD  DSN=Z40275.TEST.REXX,DISP=SHR
-//OUTDD    DD  DSN=Z40275.LOGSEL.PS,DISP=OLD
-//SYSTSPRT DD  SYSOUT=*
-//SYSTSIN  DD  *
-/*
-//
+jobid=$(zowe zos-jobs submit local-file "logsel.job" --wfo --rff jobid --rft string);
+zowe zos-jobs view spool-file-by-id $jobid 102;
+zowe zos-files download data-set "Z40275.LOGSEL.PS" -f syslog-selection.txt ;
