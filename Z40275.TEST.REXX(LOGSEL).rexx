@@ -14,7 +14,8 @@ DO WHILE eof = 'NO'                          /* Loop until the EOF of syslog  */
   ELSE                                       /* Otherwise, a record is read   */
     DO
       IF (SUBSTR(line.1,38,3)='JOB'),
-       & ((SUBSTR(line.1,57,8)='$HASP373') |,
+       & ((SUBSTR(line.1,57,8)='$HASP100') |,
+          (SUBSTR(line.1,57,8)='$HASP373') |,
           (SUBSTR(line.1,57,8)='$HASP395')) THEN
         DO                                   /* Message found                 */
           "EXECIO 1 DISKW OUTDD (STEM LINE."
