@@ -3,7 +3,7 @@ arg noalloc;
 rc=isfcalls('ON')
 if noalloc \= 'NOALLOC' then
   do
-    "ALLOC DA('Z40275.LOGSEL.PS') F(OUTDD) OLD REUSE"
+    "ALLOC DA('Z26544.LOGSEL.PS') F(OUTDD) OLD REUSE"
   end
 "EXECIO 0 DISKW outdd (OPEN FINIS"           /*Empty the outdd file           */
 Address SDSF "ISFLOG ALLOC TYPE(SYSLOG)"
@@ -37,7 +37,7 @@ if noalloc \= 'NOALLOC' then
     "FREE F(OUTDD)"
   end
 RC = ISFCALLS("OFF") /* Delete SDSF host command environment */
-say '{"Dataset":"Z40275.LOGSEL.PS","Records":"' select_count '"}'
+say '{"Dataset":"Z26544.LOGSEL.PS","Records":"' select_count '"}'
 return
 
 
