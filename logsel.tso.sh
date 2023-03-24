@@ -2,7 +2,7 @@
 echo "Starting TSO";date +"%T";
 sko=$(zowe zos-tso start address-space --sko);
 echo "Starting rexx";date +"%T";
-zowe zos-tso send address-space $sko --data "ex 'Z26544.TEST.REXX(LOGSEL)'";
+zowe zos-tso send address-space $sko --data "ex 'Z26544.REXX(LOGSEL)'";
 echo "Stopping TSO";date +"%T";
 zowe zos-tso stop address-space $sko;
 echo "Starting download selection";date +"%T";
