@@ -34,9 +34,9 @@ On z/OS:
 
 On z/OS:
 
-    - Create dataset (PDSE) to contain rexx in member LOGSEL
+    - Create dataset (PDSE) to contain job in member LOGSEL
 
-             dsname: ... uid ....TEST.REXX
+             dsname: uid.jcl
              blksz: 27998
              dsntp: LIBRARY
              dsorg: PO-E
